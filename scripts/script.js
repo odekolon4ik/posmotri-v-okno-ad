@@ -22,13 +22,13 @@ const moreButtonTmp = document.querySelector('.more-button-template');
 // Нужен для работы с переключателями
 let cardsOnPageState = [];
 
-// Первая загрузка ✅
+// Первая загрузка
 
 showPreloader(preloaderTmp, videoContainer);
 showPreloader(preloaderTmp, cardsContainer);
 mainMechanics(endpoint);
 
-// осуществляется поиск ✅
+// осуществляется поиск
 form.onsubmit = (e) => {
   e.preventDefault();
 
@@ -121,7 +121,7 @@ async function mainMechanics(endpoint) {
 
 /* УТИЛИТЫ */
 
-// Простой промис, чтобы легче ставить паузу ✅
+// Простой промис, чтобы легче ставить паузу
 
 async function delay(ms) {
   return await new Promise((resolve) => {
@@ -137,14 +137,14 @@ async function waitForReadyVideo(video) {
   });
 }
 
-// Устанавливает прелоадер на время загрузки данных ✅
+// Устанавливает прелоадер на время загрузки данных
 function showPreloader(tmp, parent) {
   const node = tmp.content.cloneNode(true);
   parent.append(node);
   console.log('показал прелоадер');
 }
 
-// Убирает прелоадер из DOM ✅
+// Убирает прелоадер из DOM
 function removePreloader(parent, preloaderSelector) {
   const preloader = parent.querySelector(preloaderSelector);
   if (preloader) {
@@ -154,7 +154,7 @@ function removePreloader(parent, preloaderSelector) {
   console.log('убрал прелоадер');
 }
 
-// Добавляет карточки в контейнер, собирая их из данных API ✅
+// Добавляет карточки в контейнер, собирая их из данных API
 function appendCards({ baseUrl, dataArray, cardTmp, container }) {
   dataArray.forEach((el) => {
     const node = cardTmp.content.cloneNode(true);
@@ -173,14 +173,14 @@ function appendCards({ baseUrl, dataArray, cardTmp, container }) {
   console.log('Сгенерировал карточки');
 }
 
-// Устанавливет внужное видео в контейнер ✅
+// Устанавливет внужное видео в контейнер
 function setVideo({ baseUrl, video, videoUrl, posterUrl }) {
   video.setAttribute('src', `${baseUrl}${videoUrl}`);
   video.setAttribute('poster', `${baseUrl}${posterUrl}`);
   console.log('Подставил видео в основной блок');
 }
 
-// получает данные из формы и сериализует как надо ✅
+// получает данные из формы и сериализует как надо
 
 function serializeFormData(form) {
   const city = form.querySelector('input[name="city"]');
@@ -196,7 +196,7 @@ function serializeFormData(form) {
   };
 }
 
-// Генерирует строку с фильтрами запросов в API в зависимости от данных из формы ✅
+// Генерирует строку с фильтрами запросов в API в зависимости от данных из формы
 function generateFilterRequest(endpoint, city, timeArray) {
   if (city) {
     endpoint += `filters[city][$containsi]=${city}&`;
@@ -210,7 +210,7 @@ function generateFilterRequest(endpoint, city, timeArray) {
   return endpoint;
 }
 
-// переключает текущее видео ✅
+// переключает текущее видео
 function chooseCurrentVideo({
   baseUrl,
   videoData,
@@ -246,7 +246,7 @@ function chooseCurrentVideo({
   }
 }
 
-// вывожу интерфейс, когда видео не найдено ✅
+// вывожу интерфейс, когда видео не найдено 
 function showError(container, errorTemplate, errorMessage) {
   const node = errorTemplate.content.cloneNode(true);
   node.querySelector('.error__title').textContent = errorMessage;

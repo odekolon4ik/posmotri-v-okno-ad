@@ -111,6 +111,7 @@ ol {
 }
 
 .content__list {
+  width: 399px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -119,18 +120,21 @@ ol {
 .content__video-card {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
 }
 
 .content__video-card-thumbnail {
-  min-inline-size: 194px;
+  inline-size: 194px;
   block-size: 103px;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;
 }
 
 .content__video-card-description-container {
   flex-grow: 1;
-  min-inline-size: 0;
+  min-width: 0;
 }
 
 /* Шаг 3. Стили текстов */
@@ -167,8 +171,8 @@ ol {
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
